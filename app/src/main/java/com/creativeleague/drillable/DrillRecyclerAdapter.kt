@@ -33,6 +33,5 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         holder.textViewName.text = drill.name
         holder.textViewContent.text = drill.content
         holder.textViewRating.text = drill.rating.toString()
-
     }
 }
