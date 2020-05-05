@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PracticePlannerActivity : AppCompatActivity() {
 
-    var chosenDrills = listOf<Drill>()
+    var chosenDrills = mutableListOf<Drill>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +25,13 @@ class PracticePlannerActivity : AppCompatActivity() {
             val intent = Intent(this, ChooseDrillActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun addDrill(drill: Drill) {
+        chosenDrills.add(drill)
+    }
+
+    fun removeDrill(drill: Drill) {
+
     }
 }

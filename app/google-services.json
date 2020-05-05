@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15822012428",
+    "firebase_url": "https://drillable.firebaseio.com",
+    "project_id": "drillable",
+    "storage_bucket": "drillable.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15822012428:android:eaa5787f852f985cff6e29",
+        "android_client_info": {
+          "package_name": "com.creativeleague.drillable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15822012428-tsned47ojhe63vds957fa245egogblt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI26rUkGY7f4D6Xp5ZzKHUM5XFw4oIvek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15822012428-tsned47ojhe63vds957fa245egogblt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
