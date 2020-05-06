@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = FirebaseFirestore.getInstance()
-
         recyclerView = findViewById<RecyclerView>(R.id.drillRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = DrillRecyclerAdapter(this, DataManager.drills)
