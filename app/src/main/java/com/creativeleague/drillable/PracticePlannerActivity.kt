@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+var chosenDrills = mutableListOf<Drill>()
 
 class PracticePlannerActivity : AppCompatActivity() {
-
-    var chosenDrills = mutableListOf<Drill>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

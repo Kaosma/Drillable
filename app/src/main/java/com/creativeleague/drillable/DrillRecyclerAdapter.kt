@@ -45,8 +45,11 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
 
         init {
             addButton.setOnClickListener {
-                //val intent = Intent(context, PracticePlannerActivity::class.java)
-                Log.i("HEJSAN", "SVEJSAN")
+                chosenDrills.add(drills[drillPosition])
+                val intent = Intent(context, PracticePlannerActivity::class.java)
+                context.startActivity(intent)
+                val hej = chosenDrills.size
+                Log.i("hejsan","$hej")
             }
         }
     }

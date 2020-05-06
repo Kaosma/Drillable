@@ -22,10 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="657dp"
         android:background="@color/colorBackground"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        android:clipToPadding="false"
         tools:listitem="@layout/drill_item" />
 
     <ImageButton

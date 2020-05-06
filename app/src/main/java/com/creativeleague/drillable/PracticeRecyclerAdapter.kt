@@ -26,6 +26,6 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val drill = chosenDrills[position]
         holder.drillName.text = drill.name
-        holder.drillNumber.text = position.toString()
+        holder.drillNumber.text = (position+1).toString()
     }
 }
