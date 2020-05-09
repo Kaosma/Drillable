@@ -7,9 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class ChooseDrillActivity : AppCompatActivity() {
-//    var addButton = findViewById<Button>(R.id.addButton)
-//    var rateButton = findViewById<Button>(R.id.rateButton)
-//    var viewButton = findViewById<Button>(R.id.viewButton)
     lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {

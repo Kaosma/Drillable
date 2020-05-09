@@ -37,8 +37,9 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         val textViewContent = itemView.findViewById<TextView>(R.id.textContent)
         val textViewRating = itemView.findViewById<TextView>(R.id.textRating)
         val rateButton = itemView.findViewById<Button>(R.id.rateButton)
-        val drillImage = itemView.findViewById<ImageView>(R.id.drillImage)
+        val viewButton = itemView.findViewById<Button>(R.id.viewButton)
         val addButton = itemView.findViewById<Button>(R.id.addButton)
+        val drillImage = itemView.findViewById<ImageView>(R.id.drillImage)
         val drillRecyclerView = itemView.findViewById<RecyclerView>(R.id.drillRecyclerView)
         val addDrillRecyclerView = itemView.findViewById<RecyclerView>(R.id.addDrillRecyclerView)
         var drillPosition = 0

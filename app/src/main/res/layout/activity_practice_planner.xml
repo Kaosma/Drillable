@@ -11,22 +11,24 @@
         android:id="@+id/autoGenerationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="50dp"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/practiceRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/practiceRecyclerView"
-        android:layout_width="373dp"
-        android:layout_height="536dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoGenerationButton">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/autoGenerationButton"
+        tools:listitem="@layout/practice_drill_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addDrillFab"
