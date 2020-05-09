@@ -29,4 +29,5 @@ class LoginActivity : AppCompatActivity() {
     fun createUser() {
         auth.createUserWithEmailAndPassword(textViewEmail.text.toString(), textViewPassword.text.toString())
     }
+
 }
