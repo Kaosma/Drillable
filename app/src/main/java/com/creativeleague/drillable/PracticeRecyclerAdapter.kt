@@ -1,6 +1,8 @@
 package com.creativeleague.drillable
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.util.*
 import android.view.LayoutInflater
 import android.view.View
@@ -42,8 +44,22 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
 
         init {
             deleteDrillButton.setOnClickListener { view ->
-                removeDrill(drillPosition)
-                Snackbar.make(view, "Drill Removed", Snackbar.LENGTH_SHORT).show()
+                val drill = chosenDrills[drillPosition].name
+                val dialogBuilder = AlertDialog.Builder(context)
+
+                dialogBuilder.setTitle("Remove Drill?")
+                    .setMessage("This will remove \"$drill\" from your practice")
+                    .setPositiveButton("Remove", DialogInterface.OnClickListener { dialog, id ->
+                        removeDrill(drillPosition)
+                        Snackbar.make(view, "Drill Removed", Snackbar.LENGTH_SHORT).show()
+                    })
+                    .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                        dialog.cancel()
+                    })
+
+                val alert = dialogBuilder.create()
+
+                alert.show()
             }
         }
     }
