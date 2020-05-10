@@ -1,5 +1,6 @@
 package com.creativeleague.drillable
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,7 +11,6 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var textViewEmail : EditText
     lateinit var textViewPassword : EditText
-    lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,16 +18,47 @@ class LoginActivity : AppCompatActivity() {
 
         textViewEmail = findViewById(R.id.textEmailLogin)
         textViewPassword = findViewById(R.id.textPasswordLogin)
-        auth = FirebaseAuth.getInstance()
         val createButton = findViewById<Button>(R.id.createAccountButton)
+        val loginButton = findViewById<Button>(R.id.loginButton)
 
+        loginButton.setOnClickListener {
+            loginUser()
+        }
         createButton.setOnClickListener {
             createUser()
         }
     }
 
-    fun createUser() {
-        auth.createUserWithEmailAndPassword(textViewEmail.text.toString(), textViewPassword.text.toString())
+    private fun loginUser() {
+        if (textViewEmail.text.toString().isEmpty() || textViewPassword.text.toString().isEmpty())
+            return
+        auth.signInWithEmailAndPassword(textViewEmail.text.toString(), textViewPassword.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    println("!! LOGGED IN !!")
+                    goToMainActivity()
+                } else {
+                    println("!! NOT LOGGED IN!!")
+                }
+            }
     }
 
+    private fun createUser() {
+        if (textViewEmail.text.toString().isEmpty() || textViewPassword.text.toString().isEmpty())
+            return
+        auth.createUserWithEmailAndPassword(textViewEmail.text.toString(), textViewPassword.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    println("!! CREATED !!")
+                } else {
+                    println("!! NOT CREATED !!")
+                }
+            }
+    }
+
+    private fun goToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 }
+

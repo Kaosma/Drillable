@@ -1,19 +1,18 @@
 package com.creativeleague.drillable
 
 import android.content.Context
+import android.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class PracticeRecyclerAdapter(private val context: Context, private val chosenDrills: List<Drill>) : RecyclerView.Adapter<PracticeRecyclerAdapter.ViewHolder>() {
-    inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        val drillNumber = itemView.findViewById<Button>(R.id.numberOfDrillButton)
-        val drillName = itemView.findViewById<Button>(R.id.nameOfDrillButton)
-    }
 
     private val layoutInflater = LayoutInflater.from(context)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,5 +26,25 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
         val drill = chosenDrills[position]
         holder.drillName.text = drill.name
         holder.drillNumber.text = (position+1).toString()
+        holder.drillPosition = position
+    }
+
+    fun removeDrill(position: Int) {
+        DataManager.chosenDrills.removeAt(position)
+        notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+        val drillNumber = itemView.findViewById<Button>(R.id.numberOfDrillButton)
+        val drillName = itemView.findViewById<Button>(R.id.nameOfDrillButton)
+        val deleteDrillButton = itemView.findViewById<ImageButton>(R.id.deleteDrillButton)
+        var drillPosition = 0
+
+        init {
+            deleteDrillButton.setOnClickListener { view ->
+                removeDrill(drillPosition)
+                Snackbar.make(view, "Drill Removed", Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 }

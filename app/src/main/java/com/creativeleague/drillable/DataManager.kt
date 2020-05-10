@@ -1,12 +1,14 @@
 package com.creativeleague.drillable
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-val chosenDrills = mutableListOf<Drill>(Drill("HEJ", 10, "du", 4.0),Drill("bajs", 15, "på", 4.5),Drill("Nej", 5, "åh", 3.0))
+val db = FirebaseFirestore.getInstance()
+val auth = FirebaseAuth.getInstance()
 
 object DataManager {
-    val db = FirebaseFirestore.getInstance()
     val drills = mutableListOf<Drill>()
+    val chosenDrills = mutableListOf<Drill>(Drill("HEJ", 10, "du", 4.0),Drill("bajs", 15, "på", 4.5),Drill("Nej", 5, "åh", 3.0))
     init {
         drillsFromDatabase()
     }
