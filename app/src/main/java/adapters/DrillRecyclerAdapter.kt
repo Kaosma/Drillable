@@ -1,6 +1,5 @@
-package com.creativeleague.drillable
+package adapters
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -11,7 +10,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.practice_drill_item.view.*
+import com.creativeleague.drillable.DataManager
+import com.creativeleague.drillable.Drill
+import com.creativeleague.drillable.PracticePlannerActivity
+import com.creativeleague.drillable.R
 
 class DrillRecyclerAdapter(private val context: Context, private val drills: List<Drill>) : RecyclerView.Adapter<DrillRecyclerAdapter.ViewHolder>(){
 

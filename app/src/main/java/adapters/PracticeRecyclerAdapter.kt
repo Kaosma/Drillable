@@ -1,17 +1,18 @@
-package com.creativeleague.drillable
+package adapters
 
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.util.*
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.creativeleague.drillable.DataManager
+import com.creativeleague.drillable.Drill
+import com.creativeleague.drillable.R
 import com.google.android.material.snackbar.Snackbar
 
 class PracticeRecyclerAdapter(private val context: Context, private val chosenDrills: List<Drill>) : RecyclerView.Adapter<PracticeRecyclerAdapter.ViewHolder>() {
@@ -51,12 +52,14 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
                     .setMessage("This will remove \"$drill\" from your practice")
                     .setPositiveButton("Remove", DialogInterface.OnClickListener { dialog, id ->
                         removeDrill(drillPosition)
-                        Snackbar.make(view, "Drill Removed", Snackbar.LENGTH_SHORT).show()
+                        val snackbar = Snackbar.make(view, "Drill Removed", Snackbar.LENGTH_SHORT)
+                            .setBackgroundTint(Color.parseColor("#FC5C14"))
+                            .setTextColor(Color.parseColor("#F4F4F4")).show()
                     })
                     .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
                         dialog.cancel()
                     })
-
+                
                 val alert = dialogBuilder.create()
 
                 alert.show()
