@@ -5,8 +5,13 @@
     android:id="@+id/teamsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="@color/colorBackground"
     tools:context="fragments.TeamsFragment">
 
 
+    <Button
+        android:id="@+id/addTeamButton"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:text="Add Team" />
 </FrameLayout>

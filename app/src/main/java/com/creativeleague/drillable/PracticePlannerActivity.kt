@@ -31,15 +31,18 @@ class PracticePlannerActivity : AppCompatActivity() {
         DataManager.chosenDrills.add(drill)
     }
 
-    fun rateDrill(drill: Drill) {
-//        val user = auth.currentUser
-//        if (user == null)
-//            return
-//
-//        db.collection("users").document(user!!.uid).collection("drills")
-    }
+    /*fun rateDrill(drill: Drill) {
+        if(!drillIstRated(drill)) {
+
+        }
+
+        db.collection("drills")
+    }*/
 
     fun viewDrill() {
 
+    }
+    fun drillIstRated (drill: Drill): Boolean {
+        return true
     }
 }

@@ -1,5 +1,6 @@
 package adapters
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -10,10 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.creativeleague.drillable.DataManager
-import com.creativeleague.drillable.Drill
-import com.creativeleague.drillable.PracticePlannerActivity
-import com.creativeleague.drillable.R
+import com.creativeleague.drillable.*
 
 class DrillRecyclerAdapter(private val context: Context, private val drills: List<Drill>) : RecyclerView.Adapter<DrillRecyclerAdapter.ViewHolder>(){
 
@@ -30,7 +28,7 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         val drill = drills[position]
         holder.textViewName.text = drill.name
         holder.textViewContent.text = drill.content
-        holder.textViewRating.text = drill.rating.toString()
+        holder.textViewRating.text = (drill.totalRating/drill.ratings).toString()
         holder.drillPosition = position
     }
 
@@ -47,12 +45,19 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         var drillPosition = 0
 
         init {
+            val activity:Activity = context as Activity
+            if (activity == MainActivity()){
+                Log.i("DET HÄR ÄR", "!!MAIN!!")
+            } else if (activity == ChooseDrillActivity()){
+                Log.i("DET HÄR ÄR", "!!CHOOSE!!")
+            }
             addButton.setOnClickListener {
                 DataManager.chosenDrills.add(drills[drillPosition])
                 val intent = Intent(context, PracticePlannerActivity::class.java)
                 context.startActivity(intent)
-                val hej = DataManager.chosenDrills.size
-                Log.i("hejsan","$hej")
+            }
+            rateButton.setOnClickListener {
+
             }
         }
     }

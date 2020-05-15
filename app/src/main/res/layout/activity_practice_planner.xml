@@ -8,27 +8,33 @@
     tools:context=".PracticePlannerActivity">
 
     <Button
-        android:id="@+id/autoGenerationButton"
+        android:id="@+id/autoGenerateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/practiceRecyclerView"
+        android:text="Auto-Generate Practice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/practiceRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autoGenerationButton"
-        tools:listitem="@layout/practice_drill_item" />
+        app:layout_constraintTop_toBottomOf="@+id/autoGenerateButton">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/practiceRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/practice_drill_item" />
+    </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addDrillFab"

@@ -1,10 +1,14 @@
 package fragments
 
+import adapters.DrillRecyclerAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.creativeleague.drillable.DataManager
 import com.creativeleague.drillable.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,10 +41,10 @@ class DrillBankFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_drill_bank, container, false)
-        //val adapter = DrillRecyclerAdapter(requireContext(), DataManager.drills)
-        //val recyclerView = view.findViewById<RecyclerView>(R.id.drillRecyclerView)
-        //recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        //recyclerView.adapter = adapter
+        val adapter = DrillRecyclerAdapter(requireContext(), DataManager.drills)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.drillRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
 
         return view
     }

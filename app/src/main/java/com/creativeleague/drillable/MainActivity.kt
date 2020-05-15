@@ -3,8 +3,10 @@ package com.creativeleague.drillable
 import adapters.FragmentAdapter
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import fragments.ClipBoardFragment
@@ -23,28 +25,28 @@ class MainActivity : AppCompatActivity() {
 
         fragmentContainer.adapter = adapter
         tabView.setupWithViewPager(fragmentContainer)
+        tabView.getTabAt(0)?.setIcon(R.drawable.ic_basketball_eggwhite_24dp)
+        tabView.getTabAt(1)?.setIcon(R.drawable.ic_team_eggwhite_24dp)
+        tabView.getTabAt(2)?.setIcon(R.drawable.ic_clipboard_eggwhite_24dp)
 
         fab.setOnClickListener { view ->
             val intent = Intent(this, PracticePlannerActivity::class.java)
             startActivity(intent)
         }
+//        tabView.
+//        tabView.setOnClickListener {
+//            if(tabView.selectedTabPosition == 0) {
+//                Log.i("HEJHEJ", "DRILLDRILL")
+//            } else if(tabView.selectedTabPosition == 1) {
+//                Log.i("HEJHEJ", "TEAMTEAM")
+//            } else if(tabView.selectedTabPosition == 2) {
+//                Log.i("HEJHEJ", "CLIPCLIP")
+//            }
+//            Log.i("HEJ", "NEJ")
+//        }
+
     }
-    fun setDrillTab(view: View) {
-        val transaction = supportFragmentManager.beginTransaction()
-        val drillBankFragment = DrillBankFragment()
-        transaction.replace(R.id.fragmentContainer, drillBankFragment, "drillBankFragment")
-        transaction.commit()
-    }
-    fun setTeamsTab(view: View) {
-        val transaction = supportFragmentManager.beginTransaction()
-        val teamsFragment = TeamsFragment()
-        transaction.replace(R.id.fragmentContainer, teamsFragment, "teamsFragment")
-        transaction.commit()
-    }
-    fun setClipBoardTab(view: View) {
-        val transaction = supportFragmentManager.beginTransaction()
-        val clipBoardFragment = ClipBoardFragment()
-        transaction.replace(R.id.fragmentContainer, clipBoardFragment, "clipBoardFragment")
-        transaction.commit()
+    fun enableSearchFab() {
+
     }
 }

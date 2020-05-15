@@ -8,7 +8,7 @@ val auth = FirebaseAuth.getInstance()
 
 object DataManager {
     val drills = mutableListOf<Drill>()
-    val chosenDrills = mutableListOf<Drill>(Drill("HEJ", 10, "du", 4.0),Drill("bajs", 15, "på", 4.5),Drill("Nej", 5, "åh", 3.0))
+    val chosenDrills = mutableListOf<Drill>()
     init {
         drillsFromDatabase()
     }
