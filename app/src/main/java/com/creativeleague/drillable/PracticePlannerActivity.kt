@@ -16,8 +16,7 @@ class PracticePlannerActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.practiceRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter =
-            PracticeRecyclerAdapter(this, DataManager.chosenDrills)
+        val adapter = PracticeRecyclerAdapter(this, DataManager.chosenDrills)
         recyclerView.adapter = adapter
 
         val fab = findViewById<View>(R.id.addDrillFab)
@@ -41,8 +40,5 @@ class PracticePlannerActivity : AppCompatActivity() {
 
     fun viewDrill() {
 
-    }
-    fun drillIstRated (drill: Drill): Boolean {
-        return true
     }
 }

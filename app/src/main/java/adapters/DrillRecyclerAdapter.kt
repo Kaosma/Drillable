@@ -28,7 +28,13 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         val drill = drills[position]
         holder.textViewName.text = drill.name
         holder.textViewContent.text = drill.content
-        holder.textViewRating.text = (drill.totalRating/drill.ratings).toString()
+        var totalRating : Double = 0.0
+        var counter = 0
+        for (rating in drill.rating) {
+            //totalRating += rating[counter]!!
+            counter += 1
+        }
+        holder.textViewRating.text = (totalRating/drill.rating.size.toDouble()).toString()
         holder.drillPosition = position
     }
 
@@ -45,19 +51,13 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         var drillPosition = 0
 
         init {
-            val activity:Activity = context as Activity
-            if (activity == MainActivity()){
-                Log.i("DET HÄR ÄR", "!!MAIN!!")
-            } else if (activity == ChooseDrillActivity()){
-                Log.i("DET HÄR ÄR", "!!CHOOSE!!")
-            }
             addButton.setOnClickListener {
                 DataManager.chosenDrills.add(drills[drillPosition])
                 val intent = Intent(context, PracticePlannerActivity::class.java)
                 context.startActivity(intent)
             }
             rateButton.setOnClickListener {
-
+                DataManager.drills
             }
         }
     }

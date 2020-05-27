@@ -69,9 +69,9 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragmentContainer"
-        android:layout_width="418dp"
-        android:layout_height="596dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="136dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

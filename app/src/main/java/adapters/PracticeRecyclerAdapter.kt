@@ -61,8 +61,9 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
                     })
                 
                 val alert = dialogBuilder.create()
-
                 alert.show()
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED)
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
             }
         }
     }

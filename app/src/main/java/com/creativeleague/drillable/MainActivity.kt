@@ -33,20 +33,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, PracticePlannerActivity::class.java)
             startActivity(intent)
         }
-//        tabView.
-//        tabView.setOnClickListener {
-//            if(tabView.selectedTabPosition == 0) {
-//                Log.i("HEJHEJ", "DRILLDRILL")
-//            } else if(tabView.selectedTabPosition == 1) {
-//                Log.i("HEJHEJ", "TEAMTEAM")
-//            } else if(tabView.selectedTabPosition == 2) {
-//                Log.i("HEJHEJ", "CLIPCLIP")
-//            }
-//            Log.i("HEJ", "NEJ")
-//        }
-
-    }
-    fun enableSearchFab() {
-
     }
 }

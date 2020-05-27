@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.creativeleague.drillable.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +36,10 @@ class TeamsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teams, container, false)
+        val view = inflater.inflate(R.layout.fragment_teams, container, false)
+        val addTeamButton = view.findViewById<Button>(R.id.addTeamButton)
+
+        return view
     }
 
     companion object {
