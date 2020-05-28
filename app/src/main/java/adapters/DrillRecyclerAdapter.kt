@@ -45,7 +45,6 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         val rateButton = itemView.findViewById<Button>(R.id.rateButton)
         val viewButton = itemView.findViewById<Button>(R.id.viewButton)
         val addButton = itemView.findViewById<Button>(R.id.addButton)
-        val drillImage = itemView.findViewById<ImageView>(R.id.drillImage)
         val drillRecyclerView = itemView.findViewById<RecyclerView>(R.id.drillRecyclerView)
         val addDrillRecyclerView = itemView.findViewById<RecyclerView>(R.id.addDrillRecyclerView)
         var drillPosition = 0
@@ -58,6 +57,11 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
             }
             rateButton.setOnClickListener {
                 DataManager.drills
+            }
+            viewButton.setOnClickListener{
+                val intent = Intent(context, ViewDrillActivity::class.java)
+                intent.putExtra("Index", drillPosition)
+                context.startActivity(intent)
             }
         }
     }

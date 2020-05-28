@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     println("!! LOGGED IN !!")
-                    goToMainActivity()
+                    toMainActivity()
                 } else {
                     println("!! NOT LOGGED IN!!")
                 }
@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun goToMainActivity() {
+    private fun toMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }

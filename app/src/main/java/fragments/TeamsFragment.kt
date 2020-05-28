@@ -1,5 +1,6 @@
 package fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,7 +39,10 @@ class TeamsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_teams, container, false)
         val addTeamButton = view.findViewById<Button>(R.id.addTeamButton)
+        addTeamButton.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(context)
 
+        }
         return view
     }
 
