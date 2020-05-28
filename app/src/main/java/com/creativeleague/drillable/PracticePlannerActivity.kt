@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PracticePlannerActivity : AppCompatActivity() {
 
@@ -19,10 +20,15 @@ class PracticePlannerActivity : AppCompatActivity() {
         val adapter = PracticeRecyclerAdapter(this, DataManager.chosenDrills)
         recyclerView.adapter = adapter
 
-        val fab = findViewById<View>(R.id.addDrillFab)
-        fab.setOnClickListener { view ->
+        val addDrillFab = findViewById<FloatingActionButton>(R.id.addDrillFab)
+        addDrillFab.setOnClickListener { view ->
             val intent = Intent(this, ChooseDrillActivity::class.java)
-            startActivity(intent)
+            this.startActivity(intent)
+        }
+        val settingsFab = findViewById<FloatingActionButton>(R.id.practiceSettingsFab)
+        settingsFab.setOnClickListener {
+            val intent = Intent(this, PracticeSetupActivity::class.java)
+            this.startActivity(intent)
         }
     }
 
