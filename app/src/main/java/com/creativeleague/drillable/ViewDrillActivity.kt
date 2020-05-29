@@ -37,7 +37,7 @@ class ViewDrillActivity : AppCompatActivity() {
         drill.rating.forEach { (key, value) ->
             totalRating += value
         }
-        
+
         drillRating.text = (totalRating/drill.rating.size.toDouble()).toString()
         viewButton.alpha = 0.5F
         drillTitle.text = drill.name

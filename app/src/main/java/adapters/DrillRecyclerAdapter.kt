@@ -4,15 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
+import android.util.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.*
 
@@ -40,7 +38,6 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         holder.drillPosition = position
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val textViewName = itemView.findViewById<TextView>(R.id.textName)
         val textViewContent = itemView.findViewById<TextView>(R.id.textContent)
