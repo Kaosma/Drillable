@@ -35,7 +35,7 @@ class PracticeSetupActivity : AppCompatActivity() {
         //limitSpinnerHeight(teamSpinner)
     }
     /*fun limitSpinnerHeight(spinner: Spinner) {
-        val popup = Spinner.class.getDeclaredField("mpopup")
+        val popup = Spinner.class.getDeclaredField("popup")
         popup.isAccessible = true
 
         val popupWindow : ListPopupWindow = popup.get(teamSpinner) as ListPopupWindow

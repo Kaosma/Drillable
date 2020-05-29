@@ -5,7 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorAccent"
-    android:padding="10dp">
+    android:padding="50dp">
+
+    <TextView
+        android:id="@+id/textClubName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of club/school/organization"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/colorCard"/>
 
     <EditText
         android:id="@+id/editClubName"
@@ -13,25 +21,50 @@
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/colorCard"
+        android:textCursorDrawable="@color/colorCard"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/textTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of team"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorCard"/>
 
     <EditText
         android:id="@+id/editTeamName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/colorCard"
+        android:textCursorDrawable="@color/colorCard"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/textNumberOfPlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of players"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorCard"/>
 
     <EditText
         android:id="@+id/editNumberOfPlayers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textColor="@color/colorCard"
+        android:textCursorDrawable="@color/colorCard"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

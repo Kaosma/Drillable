@@ -3,6 +3,7 @@ package adapters
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.*
 
@@ -29,15 +32,15 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         holder.textViewName.text = drill.name
         holder.textViewContent.text = drill.content
         var totalRating : Double = 0.0
-        var counter = 0
-        for (rating in drill.rating) {
-            //totalRating += rating[counter]!!
-            counter += 1
+
+        drill.rating.forEach { (key, value) ->
+            totalRating += value
         }
         holder.textViewRating.text = (totalRating/drill.rating.size.toDouble()).toString()
         holder.drillPosition = position
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val textViewName = itemView.findViewById<TextView>(R.id.textName)
         val textViewContent = itemView.findViewById<TextView>(R.id.textContent)
@@ -50,6 +53,9 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         var drillPosition = 0
 
         init {
+            if (context is MainActivity) {
+                addButton.visibility = View.INVISIBLE
+            }
             addButton.setOnClickListener {
                 DataManager.chosenDrills.add(drills[drillPosition])
                 val intent = Intent(context, PracticePlannerActivity::class.java)
@@ -61,6 +67,7 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
             viewButton.setOnClickListener{
                 val intent = Intent(context, ViewDrillActivity::class.java)
                 intent.putExtra("Index", drillPosition)
+                intent.putExtra("Activity", "${context.javaClass.simpleName}")
                 context.startActivity(intent)
             }
         }

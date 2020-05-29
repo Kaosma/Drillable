@@ -1,6 +1,8 @@
 package fragments
 
 import android.app.AlertDialog
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.creativeleague.drillable.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,10 +42,24 @@ class TeamsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_teams, container, false)
-        val addTeamButton = view.findViewById<Button>(R.id.addTeamButton)
+        val addTeamButton = view.findViewById<FloatingActionButton>(R.id.addTeamFab)
         addTeamButton.setOnClickListener {
-            val dialogBuilder = AlertDialog.Builder(context)
+            val dialogBuilder = AlertDialog.Builder(requireContext())
+            dialogBuilder.setView(R.layout.dialog_new_team)
+                .setTitle("Add New Team")
+                .setPositiveButton("DONE", DialogInterface.OnClickListener { dialog, id ->
+                    val snackbar = Snackbar.make(view, "New team created", Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(Color.parseColor("#FC5C14"))
+                        .setTextColor(Color.parseColor("#F4F4F4")).show()
+                })
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                    dialog.cancel()
+                })
 
+            val alert = dialogBuilder.create()
+            alert.show()
+            alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLACK)
+            alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
         }
         return view
     }

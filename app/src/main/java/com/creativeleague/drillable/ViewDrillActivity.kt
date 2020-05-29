@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -24,19 +26,23 @@ class ViewDrillActivity : AppCompatActivity() {
         val addButton = findViewById<Button>(R.id.drillAddButton)
         val drillVideo = findViewById<ImageView>(R.id.drillVideo)
         val index = intent.getIntExtra("Index", 0)
+        val context = intent.getStringExtra("Activity")
         val drill = DataManager.drills[index]
         var totalRating : Double = 0.0
-        var counter = 0
 
+        if (context=="MainActivity") {
+            addButton.visibility = View.INVISIBLE
+        }
+
+        drill.rating.forEach { (key, value) ->
+            totalRating += value
+        }
+        
+        drillRating.text = (totalRating/drill.rating.size.toDouble()).toString()
         viewButton.alpha = 0.5F
         drillTitle.text = drill.name
         drillContent.text = drill.content
 
-        for (rating in drill.rating) {
-            //totalRating += rating[counter]!!
-            counter += 1
-        }
-        //drillRating.text = (totalRating/drill.rating.size.toDouble()).toString()
         addButton.setOnClickListener {
             DataManager.chosenDrills.add(drill)
             val intent = Intent(this, PracticePlannerActivity::class.java)
