@@ -28,5 +28,4 @@ class FragmentAdapter (context: Context, fragmentManager: FragmentManager): Frag
             else -> "ClipBoard"
         }
     }
-
 }

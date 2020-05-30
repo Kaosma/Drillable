@@ -16,7 +16,8 @@
         android:textColor="@color/colorCard"/>
 
     <EditText
-        android:id="@+id/editClubName"
+        android:id="@+id/writeClubName"
+        android:text="Club"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"
@@ -37,7 +38,8 @@
         android:textColor="@color/colorCard"/>
 
     <EditText
-        android:id="@+id/editTeamName"
+        android:id="@+id/writeTeamName"
+        android:text="Team"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"
@@ -57,7 +59,8 @@
         android:textColor="@color/colorCard"/>
 
     <EditText
-        android:id="@+id/editNumberOfPlayers"
+        android:id="@+id/writeNumberOfPlayers"
+        android:text="0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_dialog_textview"

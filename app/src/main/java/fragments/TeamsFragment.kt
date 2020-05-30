@@ -4,14 +4,17 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.EditText
 import com.creativeleague.drillable.R
+import com.creativeleague.drillable.Team
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,11 +46,19 @@ class TeamsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_teams, container, false)
         val addTeamButton = view.findViewById<FloatingActionButton>(R.id.addTeamFab)
+        val clubNameInput = view.findViewById<EditText>(R.id.writeClubName)
+        val teamNameInput = view.findViewById<EditText>(R.id.writeTeamName)
+        val playersInput = view.findViewById<EditText>(R.id.writeNumberOfPlayers)
+        var userTeams = mutableListOf<Team>()
         addTeamButton.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(requireContext())
             dialogBuilder.setView(R.layout.dialog_new_team)
                 .setTitle("Add New Team")
                 .setPositiveButton("DONE", DialogInterface.OnClickListener { dialog, id ->
+                    //val newTeam = Team("$clubNameInput $teamNameInput", playersInput.toString().toInt())
+                    //userTeams.add(newTeam)
+                    //Log.i("HEJSAN TEAM", userTeams[0].name)
+                    //Log.i("HEJSAAAAN", clubNameInput.text.toString())
                     val snackbar = Snackbar.make(view, "New team created", Snackbar.LENGTH_SHORT)
                         .setBackgroundTint(Color.parseColor("#FC5C14"))
                         .setTextColor(Color.parseColor("#F4F4F4")).show()
