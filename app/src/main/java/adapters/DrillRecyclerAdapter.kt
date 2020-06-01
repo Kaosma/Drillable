@@ -31,10 +31,10 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         holder.textViewContent.text = drill.content
         var totalRating : Double = 0.0
 
-        drill.rating.forEach { (key, value) ->
+        drill.rating?.forEach { (key, value) ->
             totalRating += value
         }
-        holder.textViewRating.text = (totalRating/drill.rating.size.toDouble()).toString()
+        holder.textViewRating.text = (totalRating/ drill.rating?.size!!.toDouble()).toString()
         holder.drillPosition = position
     }
 
@@ -59,7 +59,7 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
                 context.startActivity(intent)
             }
             rateButton.setOnClickListener {
-                DataManager.drills
+                //DataManager.drills
             }
             viewButton.setOnClickListener{
                 val intent = Intent(context, ViewDrillActivity::class.java)

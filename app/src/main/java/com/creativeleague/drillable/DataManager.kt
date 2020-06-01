@@ -18,15 +18,15 @@ object DataManager {
     val chosenDrills = mutableListOf<Drill>()
 
     init {
-        val newDrill =  Drill("Defense", 15, "Play tough defense with a lot of grit like Kobe Bryant.", mutableMapOf("no" to 3))
+        /*val newDrill =  Drill("Name", 15, "Content.", mutableMapOf("UserID" to 1))
         db.collection("drills")
             .add(newDrill)
             .addOnSuccessListener { documentReference ->
-                Log.d("!!!()!!!", "DocumentSnapshot added with ID: " + documentReference.id)
+                Log.d("DRILL ADDED TO DATABASE", "DocumentSnapshot added with ID: " + documentReference.id)
             }
             .addOnFailureListener { e ->
-                Log.w("!!!()!!!", "Error adding document", e)
-            }
+                Log.w("FAILED TO ADD DRILL", "Error adding document", e)
+            }*/
         //drillsFromDatabase()
     }
 

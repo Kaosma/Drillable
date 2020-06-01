@@ -34,11 +34,11 @@ class ViewDrillActivity : AppCompatActivity() {
             addButton.visibility = View.INVISIBLE
         }
 
-        drill.rating.forEach { (key, value) ->
+        drill.rating?.forEach { (key, value) ->
             totalRating += value
         }
 
-        drillRating.text = (totalRating/drill.rating.size.toDouble()).toString()
+        drillRating.text = (totalRating/ drill.rating?.size!!.toDouble()).toString()
         viewButton.alpha = 0.5F
         drillTitle.text = drill.name
         drillContent.text = drill.content

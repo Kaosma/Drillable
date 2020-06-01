@@ -32,9 +32,7 @@ class PracticePlannerActivity : AppCompatActivity() {
         }
     }
 
-    fun addDrill(drill: Drill) {
-        DataManager.chosenDrills.add(drill)
-    }
+
 
     /*fun rateDrill(drill: Drill) {
         if(!drillIstRated(drill)) {
@@ -43,8 +41,4 @@ class PracticePlannerActivity : AppCompatActivity() {
 
         db.collection("drills")
     }*/
-
-    fun viewDrill() {
-
-    }
 }
