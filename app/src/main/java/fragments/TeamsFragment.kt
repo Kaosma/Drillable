@@ -1,17 +1,18 @@
 package fragments
 
+import adapters.DrillRecyclerAdapter
+import adapters.TeamRecyclerAdapter
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.EditText
-import com.creativeleague.drillable.R
-import com.creativeleague.drillable.Team
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.creativeleague.drillable.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -44,11 +45,16 @@ class TeamsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_teams, container, false)
+        val teamRecyclerView = view.findViewById<RecyclerView>(R.id.teamRecyclerView)
+        val adapter = TeamRecyclerAdapter(requireContext(), userTeams)
+        val gridLayoutManager = GridLayoutManager(view.context, 2, GridLayoutManager.VERTICAL, false)
         val addTeamButton = view.findViewById<FloatingActionButton>(R.id.addTeamFab)
-        var userTeams = mutableListOf<Team>()
         var clubNameInput : EditText? = null
         var teamNameInput : EditText? = null
         var playersInput : EditText? = null
+
+        teamRecyclerView.adapter = adapter
+        teamRecyclerView.layoutManager = gridLayoutManager
         addTeamButton.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(requireContext())
             dialogBuilder.setView(R.layout.dialog_new_team)

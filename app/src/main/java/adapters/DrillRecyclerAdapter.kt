@@ -1,16 +1,11 @@
 package adapters
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.os.Build
 import android.util.*
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.*
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.*
 
@@ -45,8 +40,6 @@ class DrillRecyclerAdapter(private val context: Context, private val drills: Lis
         val rateButton = itemView.findViewById<Button>(R.id.rateButton)
         val viewButton = itemView.findViewById<Button>(R.id.viewButton)
         val addButton = itemView.findViewById<Button>(R.id.addButton)
-        val drillRecyclerView = itemView.findViewById<RecyclerView>(R.id.drillRecyclerView)
-        val addDrillRecyclerView = itemView.findViewById<RecyclerView>(R.id.addDrillRecyclerView)
         var drillPosition = 0
 
         init {

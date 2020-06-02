@@ -13,9 +13,10 @@ class PracticeSetupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice_setup)
-        val listForNow : MutableList<String> = ArrayList()
-        for (i : Int in 1..1000)
-            listForNow.add("Team $i")
+        val listForNow = mutableListOf<String>()
+        userTeams.forEach { team ->
+            listForNow.add(team.name)
+        }
         val adapter : ArrayAdapter<String> = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listForNow)
         teamSpinner.adapter = adapter
         teamSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

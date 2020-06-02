@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 val db = FirebaseFirestore.getInstance()
 val auth = FirebaseAuth.getInstance()
+var userTeams = mutableListOf<Team>()
 
 object DataManager {
     val drills = mutableListOf<Drill>(
