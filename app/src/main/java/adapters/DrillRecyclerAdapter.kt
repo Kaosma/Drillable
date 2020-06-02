@@ -1,8 +1,6 @@
 package adapters
 
-import activities.MainActivity
-import activities.PracticePlannerActivity
-import activities.ViewDrillActivity
+import activities.*
 import android.content.*
 import android.view.*
 import android.widget.*

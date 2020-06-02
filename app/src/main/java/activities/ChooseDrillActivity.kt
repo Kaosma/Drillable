@@ -3,10 +3,8 @@ package activities
 import adapters.DrillRecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.creativeleague.drillable.DataManager
-import com.creativeleague.drillable.R
+import androidx.recyclerview.widget.*
+import com.creativeleague.drillable.*
 
 class ChooseDrillActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView

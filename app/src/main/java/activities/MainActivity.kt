@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
-import com.creativeleague.drillable.R
+import androidx.viewpager.widget.*
+import com.creativeleague.drillable.*
 import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {

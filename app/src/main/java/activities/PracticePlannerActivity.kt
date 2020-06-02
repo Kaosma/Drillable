@@ -4,10 +4,8 @@ import adapters.PracticeRecyclerAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.creativeleague.drillable.DataManager
-import com.creativeleague.drillable.R
+import androidx.recyclerview.widget.*
+import com.creativeleague.drillable.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PracticePlannerActivity : AppCompatActivity() {

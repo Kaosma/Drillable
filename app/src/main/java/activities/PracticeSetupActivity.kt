@@ -2,10 +2,9 @@ package activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.view.*
 import android.widget.*
-import com.creativeleague.drillable.R
-import com.creativeleague.drillable.userTeams
+import com.creativeleague.drillable.*
 import kotlinx.android.synthetic.main.activity_practice_setup.*
 
 class PracticeSetupActivity : AppCompatActivity() {

@@ -3,10 +3,8 @@ package activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import com.creativeleague.drillable.R
-import com.creativeleague.drillable.auth
+import android.widget.*
+import com.creativeleague.drillable.*
 
 class LoginActivity : AppCompatActivity() {
 

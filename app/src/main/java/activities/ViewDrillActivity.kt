@@ -3,13 +3,9 @@ package activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import com.creativeleague.drillable.DataManager
-import com.creativeleague.drillable.Drill
-import com.creativeleague.drillable.R
+import android.view.*
+import android.widget.*
+import com.creativeleague.drillable.*
 
 class ViewDrillActivity : AppCompatActivity() {
 
