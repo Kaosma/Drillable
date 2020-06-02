@@ -1,5 +1,6 @@
 package com.creativeleague.drillable
 
+import adapters.DrillRecyclerAdapter
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,9 +12,7 @@ var userTeams = mutableListOf<Team>()
 
 object DataManager {
     val drills = mutableListOf<Drill>(
-        Drill(
-            name = "Shooting", length = 20, content = "Shoot the ball hard", rating =
-            mutableMapOf("Hej" to 3)),
+        Drill( name = "Shooting", length = 20, content = "Shoot the ball hard", rating = mutableMapOf("Hej" to 3)),
         Drill(name = "Defense", length = 15, content = "Play tough defense with a lot of grit like Kobe Bryant", rating = mutableMapOf("Hej" to 3))
     )
     val chosenDrills = mutableListOf<Drill>()
@@ -30,7 +29,6 @@ object DataManager {
             }*/
         //drillsFromDatabase()
     }
-
     /*
     private fun drillsFromDatabase() {
         val drillsRef = db.collection("drills")
@@ -43,7 +41,8 @@ object DataManager {
                     if (newDrill != null)
                         drills.add(newDrill!!)
                 }
-                //DrillRecyclerAdapter.notifyDataSetChanged
+                val drillRecyclerAdapter = DrillRecyclerAdapter
+                DrillRecyclerAdapter().notifyDataSetChanged()
             }
         }
     }*/

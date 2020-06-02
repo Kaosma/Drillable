@@ -27,11 +27,16 @@ class ViewDrillActivity : AppCompatActivity() {
         val drillVideo = findViewById<ImageView>(R.id.drillVideo)
         val index = intent.getIntExtra("Index", 0)
         val context = intent.getStringExtra("Activity")
-        val drill = DataManager.drills[index]
+        var drill : Drill
         var totalRating : Double = 0.0
 
-        if (context=="MainActivity") {
+        if (context == "MainActivity") {
             addButton.visibility = View.INVISIBLE
+            drill = DataManager.drills[index]
+        } else if(context == "ChooseDrillActivity") {
+            drill = DataManager.drills[index]
+        } else {
+            drill = DataManager.chosenDrills[index]
         }
 
         drill.rating?.forEach { (key, value) ->

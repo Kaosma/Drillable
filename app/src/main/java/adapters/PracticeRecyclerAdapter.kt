@@ -3,6 +3,7 @@ package adapters
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.DataManager
 import com.creativeleague.drillable.Drill
 import com.creativeleague.drillable.R
+import com.creativeleague.drillable.ViewDrillActivity
 import com.google.android.material.snackbar.Snackbar
 
 class PracticeRecyclerAdapter(private val context: Context, private val chosenDrills: List<Drill>) : RecyclerView.Adapter<PracticeRecyclerAdapter.ViewHolder>() {
@@ -64,6 +66,12 @@ class PracticeRecyclerAdapter(private val context: Context, private val chosenDr
                 alert.show()
                 alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED)
                 alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK)
+            }
+            drillName.setOnClickListener {
+                val intent = Intent(context, ViewDrillActivity::class.java)
+                intent.putExtra("Index", drillPosition)
+                intent.putExtra("Activity", "${context.javaClass.simpleName}")
+                context.startActivity(intent)
             }
         }
     }

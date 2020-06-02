@@ -13,11 +13,11 @@ class PracticeSetupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice_setup)
-        val listForNow = mutableListOf<String>()
+        val teamSpinnerList = mutableListOf<String>()
         userTeams.forEach { team ->
-            listForNow.add(team.name)
+            teamSpinnerList.add(team.name)
         }
-        val adapter : ArrayAdapter<String> = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listForNow)
+        val adapter : ArrayAdapter<String> = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, teamSpinnerList)
         teamSpinner.adapter = adapter
         teamSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -28,18 +28,10 @@ class PracticeSetupActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                val item : String = listForNow[position]
+                val item : String = teamSpinnerList[position]
                 Toast.makeText(this@PracticeSetupActivity, "$item selected", Toast.LENGTH_SHORT)
                     .show()
             }
         }
-        //limitSpinnerHeight(teamSpinner)
     }
-    /*fun limitSpinnerHeight(spinner: Spinner) {
-        val popup = Spinner.class.getDeclaredField("popup")
-        popup.isAccessible = true
-
-        val popupWindow : ListPopupWindow = popup.get(teamSpinner) as ListPopupWindow
-        popupWindow.height = (200 * resources.displayMetrics.density).toInt()
-    }*/
 }
