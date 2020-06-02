@@ -1,12 +1,12 @@
-package com.creativeleague.drillable
+package activities
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.creativeleague.drillable.R
+import com.creativeleague.drillable.userTeams
 import kotlinx.android.synthetic.main.activity_practice_setup.*
-import java.lang.reflect.Field
 
 class PracticeSetupActivity : AppCompatActivity() {
 
@@ -17,7 +17,8 @@ class PracticeSetupActivity : AppCompatActivity() {
         userTeams.forEach { team ->
             teamSpinnerList.add(team.name)
         }
-        val adapter : ArrayAdapter<String> = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, teamSpinnerList)
+        val adapter : ArrayAdapter<String> = ArrayAdapter(this,
+            R.layout.support_simple_spinner_dropdown_item, teamSpinnerList)
         teamSpinner.adapter = adapter
         teamSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}

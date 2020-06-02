@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.DataManager
 import com.creativeleague.drillable.Drill
 import com.creativeleague.drillable.R
-import com.creativeleague.drillable.ViewDrillActivity
+import activities.ViewDrillActivity
 import com.google.android.material.snackbar.Snackbar
 
 class PracticeRecyclerAdapter(private val context: Context, private val chosenDrills: List<Drill>) : RecyclerView.Adapter<PracticeRecyclerAdapter.ViewHolder>() {

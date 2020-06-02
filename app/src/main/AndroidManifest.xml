@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PracticeSetupActivity"></activity>
-        <activity android:name=".ViewDrillActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ChooseDrillActivity" />
-        <activity android:name=".PracticePlannerActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="activities.ViewPracticeActivity"></activity>
+        <activity android:name="activities.PracticeSetupActivity" />
+        <activity android:name="activities.ViewDrillActivity" />
+        <activity android:name="activities.LoginActivity" />
+        <activity android:name="activities.ChooseDrillActivity" />
+        <activity android:name="activities.PracticePlannerActivity" />
+        <activity android:name="activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

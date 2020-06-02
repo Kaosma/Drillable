@@ -1,11 +1,12 @@
-package com.creativeleague.drillable
+package activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.google.firebase.auth.FirebaseAuth
+import com.creativeleague.drillable.R
+import com.creativeleague.drillable.auth
 
 class LoginActivity : AppCompatActivity() {
 

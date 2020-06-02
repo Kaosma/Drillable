@@ -1,12 +1,13 @@
-package com.creativeleague.drillable
+package activities
 
 import adapters.PracticeRecyclerAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.creativeleague.drillable.DataManager
+import com.creativeleague.drillable.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PracticePlannerActivity : AppCompatActivity() {
@@ -17,7 +18,9 @@ class PracticePlannerActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.practiceRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = PracticeRecyclerAdapter(this, DataManager.chosenDrills)
+        val adapter = PracticeRecyclerAdapter(this,
+            DataManager.chosenDrills
+        )
         recyclerView.adapter = adapter
 
         val addDrillFab = findViewById<FloatingActionButton>(R.id.addDrillFab)

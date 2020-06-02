@@ -1,17 +1,13 @@
-package com.creativeleague.drillable
+package activities
 
 import adapters.FragmentAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.creativeleague.drillable.R
 import com.google.android.material.tabs.TabLayout
-import kotlin.collections.HashMap
-import kotlin.collections.MutableMap
-import kotlin.collections.mutableMapOf
-import kotlin.collections.set
 
 class MainActivity : AppCompatActivity() {
 

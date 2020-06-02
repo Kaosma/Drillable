@@ -1,10 +1,12 @@
-package com.creativeleague.drillable
+package activities
 
 import adapters.DrillRecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.creativeleague.drillable.DataManager
+import com.creativeleague.drillable.R
 
 class ChooseDrillActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
@@ -15,7 +17,9 @@ class ChooseDrillActivity : AppCompatActivity() {
 
         recyclerView = findViewById<RecyclerView>(R.id.addDrillRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = DrillRecyclerAdapter(this, DataManager.drills)
+        val adapter = DrillRecyclerAdapter(this,
+            DataManager.drills
+        )
         recyclerView.adapter = adapter
     }
 }

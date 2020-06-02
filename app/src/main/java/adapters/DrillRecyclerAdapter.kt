@@ -1,9 +1,9 @@
 package adapters
 
-import android.app.Activity
+import activities.MainActivity
+import activities.PracticePlannerActivity
+import activities.ViewDrillActivity
 import android.content.*
-import android.os.Build
-import android.util.*
 import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
