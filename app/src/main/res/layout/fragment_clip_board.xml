@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clipBoardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB3B"
+    android:background="@color/colorBackground"
     tools:context="fragments.ClipBoardFragment">
 
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/fullCourtImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_fullcourt_button_orange"
+        android:layout_marginTop="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/fullCourtButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Court"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/fullCourtImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/halfCourtImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_halfcourt_button_orange"
+        android:layout_marginTop="75dp"
+        app:layout_constraintTop_toBottomOf="@id/fullCourtButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/halfCourtButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Half Court"
+        android:textColor="@color/colorAccent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/halfCourtImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

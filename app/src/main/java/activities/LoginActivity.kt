@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import com.creativeleague.drillable.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
-
+    val auth = FirebaseAuth.getInstance()
     lateinit var textViewEmail : EditText
     lateinit var textViewPassword : EditText
 

@@ -6,6 +6,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.EditText
@@ -46,7 +47,7 @@ class TeamsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_teams, container, false)
         val teamRecyclerView = view.findViewById<RecyclerView>(R.id.teamRecyclerView)
-        val adapter = TeamRecyclerAdapter(requireContext(), userTeams)
+        val adapter = TeamRecyclerAdapter(requireContext(), DataManager.userTeams)
         val gridLayoutManager = GridLayoutManager(view.context, 2, GridLayoutManager.VERTICAL, false)
         val addTeamButton = view.findViewById<FloatingActionButton>(R.id.addTeamFab)
         var clubNameInput : EditText? = null
@@ -61,7 +62,7 @@ class TeamsFragment : Fragment() {
                 .setTitle("Add New Team")
                 .setPositiveButton("DONE", DialogInterface.OnClickListener { dialog, id ->
                     val newTeam = Team("${clubNameInput?.text} ${teamNameInput?.text}", playersInput?.text.toString().toInt())
-                    userTeams.add(newTeam)
+                    DataManager.userTeams.add(newTeam)
                     val snackbar = Snackbar.make(view, "New team ${newTeam.name} created", Snackbar.LENGTH_SHORT)
                         .setBackgroundTint(Color.parseColor("#FC5C14"))
                         .setTextColor(Color.parseColor("#F4F4F4")).show()

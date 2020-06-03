@@ -20,10 +20,10 @@ class TeamRecyclerAdapter(private val context: Context, private val teams: List<
         return ViewHolder(teamView)
     }
 
-    override fun getItemCount() = userTeams.size
+    override fun getItemCount() = DataManager.userTeams.size
 
     override fun onBindViewHolder(holder: TeamRecyclerAdapter.ViewHolder, position: Int) {
-        val team = userTeams[position]
+        val team = DataManager.userTeams[position]
         holder.teamName.text = team.name
     }
 

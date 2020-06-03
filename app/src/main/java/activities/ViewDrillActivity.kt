@@ -6,12 +6,17 @@ import android.os.Bundle
 import android.view.*
 import android.widget.*
 import com.creativeleague.drillable.*
+import com.google.firebase.firestore.FirebaseFirestore
+import fragments.DrillBankFragment
 
 class ViewDrillActivity : AppCompatActivity() {
+    val db = FirebaseFirestore.getInstance()
+    val drills = mutableListOf<Drill>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_drill)
+        drillsFromDatabase()
         val drillTitle = findViewById<TextView>(R.id.drillTitle)
         val drillContent = findViewById<TextView>(R.id.drillContent)
         val drillRating = findViewById<TextView>(R.id.drillRating)
@@ -26,9 +31,9 @@ class ViewDrillActivity : AppCompatActivity() {
 
         if (context == "MainActivity") {
             addButton.visibility = View.INVISIBLE
-            drill = DataManager.drills[index]
+            drill = drills[index]
         } else if(context == "ChooseDrillActivity") {
-            drill = DataManager.drills[index]
+            drill = drills[index]
         } else {
             drill = DataManager.chosenDrills[index]
         }
@@ -46,6 +51,21 @@ class ViewDrillActivity : AppCompatActivity() {
             DataManager.chosenDrills.add(drill)
             val intent = Intent(this, PracticePlannerActivity::class.java)
             this.startActivity(intent)
+        }
+    }
+
+    private fun drillsFromDatabase() {
+        val drillsRef = db.collection("drills")
+        drillsRef.addSnapshotListener { snapshot, e ->
+            if(snapshot != null) {
+                drills.clear()
+                for(document in snapshot.documents) {
+                    val newDrill = document.toObject(Drill::class.java)
+                    val message = newDrill!!.name
+                    if (newDrill != null)
+                        drills.add(newDrill!!)
+                }
+            }
         }
     }
 }

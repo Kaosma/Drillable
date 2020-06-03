@@ -1,6 +1,6 @@
 package activities
 
-import adapters.PracticeRecyclerAdapter
+import adapters.PracticePlannerRecyclerAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +14,9 @@ class PracticePlannerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice_planner)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.practiceRecyclerView)
+        val recyclerView = findViewById<RecyclerView>(R.id.practicePlannerRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = PracticeRecyclerAdapter(this,
+        val adapter = PracticePlannerRecyclerAdapter(this,
             DataManager.chosenDrills
         )
         recyclerView.adapter = adapter
