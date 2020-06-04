@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import java.lang.Double.parseDouble
 import java.lang.Integer.parseInt
 
@@ -56,10 +57,6 @@ class TeamsFragment : Fragment() {
         var clubNameInput : EditText? = null
         var teamNameInput : EditText? = null
         var playersInput : EditText? = null
-
-        //shared preferences (Name, Mode)
-        val sharedPreferences = this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-        val editor = sharedPreferences?.edit()
 
         teamRecyclerView.adapter = adapter
         teamRecyclerView.layoutManager = gridLayoutManager

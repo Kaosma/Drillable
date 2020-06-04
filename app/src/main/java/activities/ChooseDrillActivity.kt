@@ -33,6 +33,7 @@ class ChooseDrillActivity : AppCompatActivity() {
                     val newDrill = document.toObject(Drill::class.java)
                     val message = newDrill!!.name
                     if (newDrill != null)
+                        newDrill.id = document.id
                         drills.add(newDrill!!)
                 }
                 recyclerView.adapter?.notifyDataSetChanged()

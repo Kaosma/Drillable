@@ -79,7 +79,6 @@ class PracticeSetupActivity : AppCompatActivity() {
             val practice = Practice(chosenDrills, numberOfPlayers, waterBreaks, practiceLength)
             practice.updateLength()
 
-
             DataManager.userTeams.forEach { team ->
                 if (team.name == chosenTeam.name) {
                     team.practices.add(practice)
