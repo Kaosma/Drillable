@@ -3,6 +3,7 @@ package fragments
 import adapters.DrillRecyclerAdapter
 import adapters.TeamRecyclerAdapter
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
@@ -16,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.creativeleague.drillable.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import java.lang.Double.parseDouble
+import java.lang.Integer.parseInt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,6 +57,10 @@ class TeamsFragment : Fragment() {
         var teamNameInput : EditText? = null
         var playersInput : EditText? = null
 
+        //shared preferences (Name, Mode)
+        val sharedPreferences = this.activity?.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+
         teamRecyclerView.adapter = adapter
         teamRecyclerView.layoutManager = gridLayoutManager
         addTeamButton.setOnClickListener {
@@ -61,11 +68,23 @@ class TeamsFragment : Fragment() {
             dialogBuilder.setView(R.layout.dialog_new_team)
                 .setTitle("Add New Team")
                 .setPositiveButton("DONE", DialogInterface.OnClickListener { dialog, id ->
-                    val newTeam = Team("${clubNameInput?.text} ${teamNameInput?.text}", playersInput?.text.toString().toInt())
-                    DataManager.userTeams.add(newTeam)
-                    val snackbar = Snackbar.make(view, "New team ${newTeam.name} created", Snackbar.LENGTH_SHORT)
-                        .setBackgroundTint(Color.parseColor("#FC5C14"))
-                        .setTextColor(Color.parseColor("#F4F4F4")).show()
+                    var numeric = true
+                    try {
+                        val num = parseInt(playersInput?.text.toString())
+                    } catch (e: NumberFormatException) {
+                        numeric = false
+                    }
+                    if(clubNameInput?.text.toString() != "" && teamNameInput?.text.toString() != "" && playersInput?.text.toString() != "" && numeric) {
+                        val newTeam = Team("${clubNameInput?.text} ${teamNameInput?.text}", playersInput?.text.toString().toInt())
+                        val snackbar = Snackbar.make(view, "New team ${newTeam.name} created", Snackbar.LENGTH_SHORT)
+                            .setBackgroundTint(Color.parseColor("#FC5C14"))
+                            .setTextColor(Color.parseColor("#F4F4F4")).show()
+                    } else {
+                        val snackbar = Snackbar.make(view, "Invalid input", Snackbar.LENGTH_SHORT)
+                            .setBackgroundTint(Color.parseColor("#F4F4F4"))
+                            .setTextColor(Color.RED).show()
+                    }
+
                 })
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
                     dialog.cancel()

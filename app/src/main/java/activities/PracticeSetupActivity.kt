@@ -18,18 +18,46 @@ class PracticeSetupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_practice_setup)
         val doneFab = findViewById<FloatingActionButton>(R.id.practiceDoneFab)
         val teamSpinnerList = mutableListOf<String>()
+        val playerSeekBar = findViewById<SeekBar>(R.id.playerSeekBar)
+        val minuteSeekBar = findViewById<SeekBar>(R.id.minuteSeekBar)
+        val waterBreakSeekBar = findViewById<SeekBar>(R.id.waterBreakSeekBar)
         lateinit var chosenTeam : Team
+        var numberOfPlayers = 0
+        var practiceLength = 0
+        var waterBreaks = 0
+        val adapter : ArrayAdapter<String> = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, teamSpinnerList)
+        teamSpinner.adapter = adapter
         DataManager.userTeams.forEach { team ->
             teamSpinnerList.add(team.name)
         }
-        val adapter : ArrayAdapter<String> = ArrayAdapter(this,
-            R.layout.support_simple_spinner_dropdown_item, teamSpinnerList)
 
-        teamSpinner.adapter = adapter
-
+        playerSeekBar.setOnSeekBarChangeListener( object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                playerAmountText.text = "$progress"
+                numberOfPlayers = progress
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+        minuteSeekBar.setOnSeekBarChangeListener( object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val interval = progress*5
+                minuteAmountText.text = "$interval min"
+                practiceLength = interval
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+        waterBreakSeekBar.setOnSeekBarChangeListener( object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                waterBreakAmountText.text = "$progress"
+                waterBreaks = progress
+            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
         teamSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -48,7 +76,7 @@ class PracticeSetupActivity : AppCompatActivity() {
         }
         doneFab.setOnClickListener {
             val intent = Intent(this, ViewPracticeActivity::class.java)
-            val practice = Practice(chosenDrills)
+            val practice = Practice(chosenDrills, numberOfPlayers, waterBreaks, practiceLength)
             practice.updateLength()
 
 

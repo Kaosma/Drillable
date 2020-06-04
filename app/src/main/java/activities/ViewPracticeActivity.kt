@@ -22,8 +22,7 @@ class ViewPracticeActivity : AppCompatActivity() {
         }
         val recyclerView = findViewById<RecyclerView>(R.id.practiceRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        Log.i("CHOSEN TEAM", chosenTeam.name)
-        Log.i("PRACTICES", "${chosenTeam.practices}")
+        Log.i("PRACTICES", "${chosenTeam.practices[0].length} ${chosenTeam.practices[0].participants} ${chosenTeam.practices[0].waterBreaks}")
         val adapter: PracticeRecyclerAdapter
         adapter = PracticeRecyclerAdapter(this, chosenTeam.practices[0].drills)
         recyclerView.adapter = adapter

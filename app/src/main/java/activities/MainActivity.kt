@@ -1,6 +1,7 @@
 package activities
 
 import adapters.FragmentAdapter
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val tabView = findViewById<TabLayout>(R.id.tabView)
         val fragmentContainer =findViewById<ViewPager>(R.id.fragmentContainer)
         var adapter = FragmentAdapter(this, supportFragmentManager)
+
         fragmentContainer.adapter = adapter
         tabView.setupWithViewPager(fragmentContainer)
         tabView.getTabAt(0)?.setIcon(R.drawable.ic_basketball_eggwhite_24dp)
