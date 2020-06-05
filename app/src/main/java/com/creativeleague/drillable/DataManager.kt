@@ -5,16 +5,15 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 object DataManager {
-    var userTeams = mutableListOf<Team>()
     var chosenDrills = mutableListOf<Drill>()
-
+    var userTeams = mutableListOf<Team>()
     /*
     fun loadUserTeam(context: Context) {
         val sharedPreferences = context.getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         val gson = Gson()
         val json = sharedPreferences.getString("USER_TEAMS", null)
-        val type = object : TypeToken<MutableList<Team>>()
+        val type = object : TypeToken<MutableList<Team>>().type
         val teams = gson.fromJson<MutableList<Team>>(json, type)
         userTeams = teams
     }*/

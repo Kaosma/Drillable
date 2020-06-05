@@ -3,6 +3,7 @@ package activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.*
 import android.view.*
 import android.widget.*
 import com.creativeleague.drillable.*
@@ -35,6 +36,9 @@ class ViewDrillActivity : AppCompatActivity() {
         } else if(context == "ChooseDrillActivity") {
             drill = drills[index]
         } else {
+            if(context == "PracticePlannerActivity") {
+                addButton.visibility = View.INVISIBLE
+            }
             drill = DataManager.chosenDrills[index]
         }
 
@@ -61,7 +65,6 @@ class ViewDrillActivity : AppCompatActivity() {
                 drills.clear()
                 for(document in snapshot.documents) {
                     val newDrill = document.toObject(Drill::class.java)
-                    val message = newDrill!!.name
                     if (newDrill != null)
                         newDrill.id = document.id
                         drills.add(newDrill!!)

@@ -21,7 +21,7 @@ class PracticeSetupActivity : AppCompatActivity() {
         val playerSeekBar = findViewById<SeekBar>(R.id.playerSeekBar)
         val minuteSeekBar = findViewById<SeekBar>(R.id.minuteSeekBar)
         val waterBreakSeekBar = findViewById<SeekBar>(R.id.waterBreakSeekBar)
-        lateinit var chosenTeam : Team
+        var chosenTeam : Team? = null
         var numberOfPlayers = 0
         var practiceLength = 0
         var waterBreaks = 0
@@ -58,12 +58,7 @@ class PracticeSetupActivity : AppCompatActivity() {
         })
         teamSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val item : String = teamSpinnerList[position]
                 DataManager.userTeams.forEach { team ->
                     if (team.name == item) {
@@ -80,11 +75,11 @@ class PracticeSetupActivity : AppCompatActivity() {
             practice.updateLength()
 
             DataManager.userTeams.forEach { team ->
-                if (team.name == chosenTeam.name) {
+                if (team.name == chosenTeam?.name) {
                     team.practices.add(practice)
                 }
             }
-            intent.putExtra("Team", chosenTeam.name)
+            intent.putExtra("Team", chosenTeam?.name)
 
             this.startActivity(intent)
             chosenDrills = mutableListOf()

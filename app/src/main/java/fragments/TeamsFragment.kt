@@ -76,6 +76,7 @@ class TeamsFragment : Fragment() {
                         val snackbar = Snackbar.make(view, "New team ${newTeam.name} created", Snackbar.LENGTH_SHORT)
                             .setBackgroundTint(Color.parseColor("#FC5C14"))
                             .setTextColor(Color.parseColor("#F4F4F4")).show()
+                        DataManager.userTeams.add(newTeam)
                     } else {
                         val snackbar = Snackbar.make(view, "Invalid input", Snackbar.LENGTH_SHORT)
                             .setBackgroundTint(Color.parseColor("#F4F4F4"))
